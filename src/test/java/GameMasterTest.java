@@ -1,14 +1,25 @@
 import junit.framework.TestCase;
 
+/**
+ * Tests the different methods of the GameMaster class.
+ */
 public class GameMasterTest extends TestCase
 {
     GameMaster master;
 
+    /**
+     * Initial setup used before each test.
+     */
     public void setup()
     {
         master = GameMaster.instance();
         master.setGameBoard(new SimpleGameBoard());
     }
+
+    /**
+     * Asserts that GameMaster.instance() returns the GameMaster object
+     * Asserts when assigning to a second variable, the first and second variable are the same GameMaster object
+     */
     public void testSingleton()
     {
         GameMaster instance1 = GameMaster.instance();
@@ -20,6 +31,10 @@ public class GameMasterTest extends TestCase
         assertSame(instance1, instance2);
     }
 
+    /**
+     * Asserts getNumberOfPlayers() returns the same number as the GameMaster was assigned.
+     * Asserts that each player starts at Cell position 0 on the GameBoard.
+     */
     public void testPlayerInit()
     {
         master = GameMaster.instance();
@@ -35,6 +50,10 @@ public class GameMasterTest extends TestCase
         }
     }
 
+    /**
+     * Asserts that after moving a Player from position 0, their new position matches the expected Cell.
+     * Asserts that after moving the Player again, their new position matches the expected Cell.
+     */
     public void testMovePlayerSimple()
     {
         master = GameMaster.instance();
@@ -48,6 +67,10 @@ public class GameMasterTest extends TestCase
         assertEquals("Green 2", player.getPosition().getName());
     }
 
+    /**
+     * Asserts that when a Players move puts them beyond the end of the list of Cells, it continues from the
+     * beginning of the list of Cells again.
+     */
     public void testMovePlayerCycle()
     {
         master = GameMaster.instance();
