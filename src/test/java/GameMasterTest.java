@@ -22,7 +22,7 @@ public class GameMasterTest extends TestCase
 
     public void testPlayerInit()
     {
-        GameMaster master = GameMaster.instance();
+        master = GameMaster.instance();
         master.setGameBoard(new SimpleGameBoard());
         master.setNumberOfPlayers(6);
         assertEquals(6, master.getNumberOfPlayers());
@@ -37,7 +37,7 @@ public class GameMasterTest extends TestCase
 
     public void testMovePlayerSimple()
     {
-        GameMaster master = GameMaster.instance();
+        master = GameMaster.instance();
         master.setGameBoard(new SimpleGameBoard());
         master.setNumberOfPlayers(1);
         Player player = master.getPlayer(0);
@@ -50,7 +50,7 @@ public class GameMasterTest extends TestCase
 
     public void testMovePlayerCycle()
     {
-        GameMaster master = GameMaster.instance();
+        master = GameMaster.instance();
         master.setGameBoard(new SimpleGameBoard());
         master.setNumberOfPlayers(1);
         Player player = master.getPlayer(0);
